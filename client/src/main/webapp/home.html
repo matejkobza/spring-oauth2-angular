@@ -1,8 +1,8 @@
-<h1>Greeting</h1>
-<div ng-show="authenticated">
-	<p>The ID is {{controller.greeting.id}}</p>
-	<p>The content is {{controller.greeting.content}}</p>
-</div>
-<div  ng-show="!authenticated">
-	<p>Login to see your greeting</p>
+<div class="margin-auto width500">
+
+    <h1>You have successfuly logged in</h1>
+
+    <span>Name: {{Principal.name}}</span><br />
+    With following roles:<br />
+    <div class="row" ng-repeat="authority in Principal.authorities">{{authority.authority}}</div>
 </div>

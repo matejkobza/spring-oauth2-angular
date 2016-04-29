@@ -1,21 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <title>Hello AngularJS</title>
-    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <title>OAuth2 client DEMO</title>
+
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js" ></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
-    <script type="text/javascript" src="js/hello.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!--<script type="text/javascript" src="js/hello.js"></script>-->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/app.state.js"></script>
+    <script type="text/javascript" src="js/app.controller.js"></script>
+    <script type="text/javascript" src="js/auth/principal.service.js"></script>
 </head>
 
-<body ng-app="app" ng-cloak class="ng-cloak">
-<div ng-controller="navigation as nav" class="container">
-    <ul class="nav nav-pills" role="tablist">
-        <li ng-class="{active:nav.tab('home')}"><a href="#/">home</a></li>
-        <li ng-class="{active:nav.tab('navigation')}"><a href="login">login</a></li>
-        <li ng-show="authenticated"><a href="" ng-click="nav.logout()">logout</a></li>
+<body ng-app="app" ng-cloak class="ng-cloak" ng-controller="AppController as appController">
+
+<menu>
+    <ul class="nav nav-pills" role="tablist" ng-if="Principal.isAuthenticated">
+        <li ng-if="Principal.isAuthenticated"><a href="#/">home</a></li>
+        <li ng-if="Principal.isAuthenticated"><a href="" ng-click="Principal.logout()">logout</a></li>
     </ul>
+</menu>
+
+<div ng-if="!Principal.isAuthenticated" class="margin-auto width500">
+    <h1>Welcome in OAuth2 client DEMO</h1>
+
+    Currently you are not logged in. Please follow the button bellow to log in.
+
+    <a href="login"><button>Login</button></a>
+
 </div>
-<div ng-view class="container"></div>
+
+<div ui-view ng-if="Principal.isAuthenticated"></div>
+
 </body>
 </html>
