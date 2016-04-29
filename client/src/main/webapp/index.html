@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello AngularJS</title>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/hello.js"></script>
+</head>
+
+<body ng-app="app" ng-cloak class="ng-cloak">
+<div ng-controller="navigation as nav" class="container">
+    <ul class="nav nav-pills" role="tablist">
+        <li ng-class="{active:nav.tab('home')}"><a href="#/">home</a></li>
+        <li ng-class="{active:nav.tab('navigation')}"><a href="login">login</a></li>
+        <li ng-show="authenticated"><a href="" ng-click="nav.logout()">logout</a></li>
+    </ul>
+</div>
+<div ng-view class="container"></div>
+</body>
+</html>
