@@ -1,8 +1,8 @@
-# OAuth 2 Demo client application
+# OAuth 2 Demo client
 
 This application is developed with spring-boot framework.
 
-## Running demo application
+## Running client application
 In order to run this application you need identity provider against which you will be authorized and logged in to the application. First you need to run identity-provider package and then you can run UiApplication.java. Continue to http://localhost:8080 where you will find user interface with login.
 
 ## Continous development

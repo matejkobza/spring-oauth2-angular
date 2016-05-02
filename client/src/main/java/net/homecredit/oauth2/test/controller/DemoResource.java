@@ -1,6 +1,5 @@
 package net.homecredit.oauth2.test.controller;
 
-import com.sun.xml.internal.ws.client.sei.ResponseBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
