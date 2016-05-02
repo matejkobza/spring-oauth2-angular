@@ -5,4 +5,8 @@
     <span>Name: {{Principal.name}}</span><br />
     With following roles:<br />
     <div class="row" ng-repeat="authority in Principal.authorities">{{authority.authority}}</div>
+
+    <br /><br />
+    Demo call to REST endpoint:
+    <strong>{{homeController.response}}</strong>
 </div>

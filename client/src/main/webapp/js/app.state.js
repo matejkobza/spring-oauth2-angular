@@ -6,7 +6,7 @@ angular.module('app')
         $stateProvider.state('default', {
             url: "",
             templateUrl: 'home.html',
-            //controller: 'HomeController',
+            controller: 'HomeController as homeController',
             //controllerAs: 'homeController',
             resolve: {
                 authorize: ['Principal',
