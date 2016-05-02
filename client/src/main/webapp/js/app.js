@@ -2,7 +2,8 @@
 
 angular.module('app', [
     'ngRoute',
-    'ui.router'
+    'ui.router',
+    'ngCacheBuster'
 ])
     .config(function ($httpProvider) {
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
