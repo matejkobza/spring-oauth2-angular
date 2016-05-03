@@ -30,16 +30,10 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
-@Controller
 @SessionAttributes("authorizationRequest")
 @EnableResourceServer
 public class AuthserverApplication extends WebMvcConfigurerAdapter {
 
-    @RequestMapping("/user")
-    @ResponseBody
-    public Principal user(Principal user) {
-        return user;
-    }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -55,8 +49,8 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
     @Order(-20)
     protected static class LoginConfig extends WebSecurityConfigurerAdapter {
 
-        @Autowired
-        private AuthenticationManager authenticationManager;
+//        @Autowired
+//        private AuthenticationManager authenticationManager;
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
@@ -72,7 +66,11 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
 
         @Override
         protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-            auth.parentAuthenticationManager(authenticationManager);
+//            auth.parentAuthenticationManager(authenticationManager);
+            auth.inMemoryAuthentication()
+                    .withUser("user").password("password").roles("USER", "READER", "WRITER")
+                    .and()
+                    .withUser("admin").password("password").roles("ADMIN", "USER", "WRITER", "READER");
         }
     }
 

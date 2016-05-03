@@ -15,9 +15,9 @@ angular.module('app')
         function authenticate() {
             $http.get('user').then(function(response) {
                 // response tels us about user
-                principal.isAuthenticated = !!response.data.name;
-                principal.name = response.data.name;
-                principal.authorities = response.data.authorities;
+                principal.isAuthenticated = !!response.data.userInfo;
+                principal.name = response.data.userInfo;
+                principal.roles = response.data.roles;
             }, function() { // error when accessing user resource
                 principal.isAuthenticated = false;
             });
